@@ -44,5 +44,4 @@ public class Config implements WebMvcConfigurer{
             return LocalDate.parse(source);
         }
     }
-
 }

@@ -1,34 +1,42 @@
 package kamaz.project.sandbox.mapper;
 
-import java.util.stream.Collectors;
-
 import kamaz.project.sandbox.dto.UserDto;
 import kamaz.project.sandbox.dto.UserLoggedDto;
-import kamaz.project.sandbox.models.Permission;
 import kamaz.project.sandbox.models.User;
 
 public class UserMapper {
+
     public static UserDto userToUserDto(User user) {
+        if (user == null) return null;
+        
         return new UserDto(
                 user.getId(),
                 user.getUsername(),
                 user.getPassword(),
-                user.getRole().getAuthority(),
-                user.getRole().getPermissions().stream()
-                .map(Permission::getAuthority)
-                .collect(Collectors.toSet())
+                user.getRole() != null ? user.getRole().getName() : null,
+                null
         );
     }
-    public static User userDtoToUser(UserDto dto) {
-        User user = new User();
-        user.setUsername(dto.username());
-        return user;
-    }
+
     public static UserLoggedDto userToUserLoggedDto(User user) {
+        if (user == null) return null;
+        
         return new UserLoggedDto(
                 user.getUsername(),
-                user.getRole().getAuthority(),
-                user.getRole().getPermissions().stream().map(Permission::getAuthority).collect(Collectors.toSet())
+                user.getRole() != null ? user.getRole().getName() : null,
+                null
         );
+    }
+
+    // НОВЫЙ МЕТОД (используется в UserServiceImpl)
+    public static User userDtoToUser(UserDto dto) {
+        if (dto == null) return null;
+        
+        User user = new User();
+        user.setId(dto.id());
+        user.setUsername(dto.username());
+        user.setPassword(dto.password());
+        // роль устанавливается отдельно в сервисе
+        return user;
     }
 }

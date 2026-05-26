@@ -8,14 +8,12 @@ kamaz\project\sandbox\models\Role.class
 kamaz\project\sandbox\jwt\JwtTokenProvider.class
 kamaz\project\sandbox\dto\LoginRequest.class
 kamaz\project\sandbox\enums\Roles.class
-kamaz\project\sandbox\DemoApplication.class
 kamaz\project\sandbox\repositories\UserRepository.class
 kamaz\project\sandbox\services\impl\AnomalyService.class
 kamaz\project\sandbox\dto\LoginResponse.class
 kamaz\project\sandbox\services\impl\AuthServiceImpl.class
 kamaz\project\sandbox\services\impl\TelegramLoggingService.class
 kamaz\project\sandbox\repositories\TokenRepository.class
-kamaz\project\sandbox\dto\TypeMonth.class
 kamaz\project\sandbox\models\Permission$PermissionBuilder.class
 kamaz\project\sandbox\util\CookieUtil.class
 kamaz\project\sandbox\config\Config.class
@@ -24,7 +22,6 @@ kamaz\project\sandbox\config\LoginLogger.class
 kamaz\project\sandbox\enums\ANSIColor.class
 kamaz\project\sandbox\dto\WiperResponseDto.class
 kamaz\project\sandbox\models\Wiper$WiperBuilder.class
-kamaz\project\sandbox\dto\HeaderDto.class
 kamaz\project\sandbox\exception\AppException.class
 kamaz\project\sandbox\services\AuthService.class
 kamaz\project\sandbox\jwt\JwtAuthFilter.class
@@ -47,7 +44,6 @@ kamaz\project\sandbox\exception\AppExceptionHandler.class
 kamaz\project\sandbox\models\User.class
 kamaz\project\sandbox\services\impl\WiperServiceImpl.class
 kamaz\project\sandbox\config\SecurityConfig.class
-kamaz\project\sandbox\jwt\AuthenticationFilterImpl.class
 kamaz\project\sandbox\dto\RestoreRequest.class
 kamaz\project\sandbox\dto\WiperCreateDto.class
 kamaz\project\sandbox\jwt\JwtAuthEntryPoint.class
@@ -58,6 +54,5 @@ kamaz\project\sandbox\models\User$UserBuilder.class
 kamaz\project\sandbox\services\impl\ExcelService$1.class
 kamaz\project\sandbox\util\Constants.class
 kamaz\project\sandbox\config\SwaggerConfig.class
-kamaz\project\sandbox\config\SpringConfig.class
 kamaz\project\sandbox\services\impl\UserServiceImpl.class
 kamaz\project\sandbox\config\RequestLoggingInterceptor.class

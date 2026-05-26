@@ -2,18 +2,15 @@ C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\config\Config.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\config\LoginLogger.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\config\RequestLoggingInterceptor.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\config\SecurityConfig.java
-C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\config\SpringConfig.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\config\SwaggerConfig.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\controllers\AuthenticationController.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\controllers\WiperController.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\DemoApplication.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\ChangePasswordRequest.java
-C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\HeaderDto.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\LoginRequest.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\LoginResponse.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\RegisterRequest.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\RestoreRequest.java
-C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\TypeMonth.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\UserDto.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\UserLoggedDto.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\WiperCreateDto.java
@@ -26,7 +23,6 @@ C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\exception\AppExcepti
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\exception\AppExceptionHandler.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\exception\ErrorDetails.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\exception\ResourceNotFoundException.java
-C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\jwt\AuthenticationFilterImpl.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\jwt\JwtAuthEntryPoint.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\jwt\JwtAuthFilter.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\jwt\JwtTokenProvider.java

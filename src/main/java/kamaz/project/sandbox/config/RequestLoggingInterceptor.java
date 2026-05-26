@@ -19,7 +19,6 @@ import kamaz.project.sandbox.mapper.HttpMethodColors;
 @Component
 public class RequestLoggingInterceptor implements HandlerInterceptor {
 
-    // A thread-safe map to store start times for each request
     private final ConcurrentHashMap<String, Long> requestStartTimes = new ConcurrentHashMap<>();
 
     @Override
@@ -31,9 +30,8 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
         if (requestedURI.startsWith("/css") || requestedURI.startsWith("/js") || requestedURI.startsWith("/images")) {
             return true;
         }
-        // Capture the start time of the request
         long startTime = System.currentTimeMillis();
-        String requestId = generateRequestId(request); // Generate a unique key for the request
+        String requestId = generateRequestId(request);
         requestStartTimes.put(requestId, startTime);
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -54,14 +52,11 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
         if (requestedURI.startsWith("/css") || requestedURI.startsWith("/js") || requestedURI.startsWith("/images")) {
             return;
         }
-        // Retrieve the start time for the request
         String requestId = generateRequestId(request);
         Long startTime = requestStartTimes.remove(requestId);
         if (startTime != null) {
-            // Calculate the elapsed time
             long elapsedTime = System.currentTimeMillis() - startTime;
 
-            // Log the response details with the elapsed time
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String userName = (authentication != null && authentication.isAuthenticated()) ? authentication.getName()
                     : "anonymous";
