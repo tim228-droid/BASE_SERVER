@@ -74,3 +74,6 @@ mvn spring-boot:run
 | GET | `/api/wipers/report` | Сформировать отчёт в Excel |
 | GET | `/api/wipers/report/pdf` | Сформировать отчёт в PDF |
 | POST | `/api/wipers/import/excel` | Импорт дворников из Excel |
+
+## Схема БД
+https://github.com/tim228-droid/BASE_SERVER/blob/98fdb5cbb78382ebe867774c5e1285603261e344/BD.png
