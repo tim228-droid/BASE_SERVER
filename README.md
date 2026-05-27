@@ -77,3 +77,6 @@ mvn spring-boot:run
 
 ## Схема БД
 ![Схема БД](https://github.com/tim228-droid/BASE_SERVER/blob/98fdb5cbb78382ebe867774c5e1285603261e344/BD.png)
+
+## Скрин виртуалки 
+![виртуалка](https://github.com/tim228-droid/BASE_SERVER/blob/f1393ec578dad494455ec9679d4e070fa33cabc9/image.png)
