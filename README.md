@@ -51,8 +51,9 @@ API документация
 ```
 Тестовые пользователи
 ```
-Роль	Логин	Пароль
-ADMIN	admin1	admin123
-MANAGER	manager1	manager123
-USER	user1	user123
+| Роль     | Логин     | Пароль     |
+|----------|-----------|------------|
+| ADMIN    | admin1    | admin123   |
+| MANAGER  | manager1  | manager123 |
+| USER     | user1     | user123    |
 ```
