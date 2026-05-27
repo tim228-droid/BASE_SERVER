@@ -33,13 +33,26 @@ GRANT ALL PRIVILEGES ON DATABASE sandbox TO postgres;
 ```
 
 Настройка конфигурации
-
+```
 jwt.secret=66546A555E5A7234753778214123222A472D4B614E645262356B587032733576
 telegram.bot.token=есть
 telegram.chat.id=8810328516
 telegram.enabled=true
 upload.path=./uploads/
+```
 
 Запуск приложения
+```
 mvn spring-boot:run 
-
+```
+API документация
+```
+После запуска: http://localhost:8080/swagger-ui.html
+```
+Тестовые пользователи
+```
+Роль	Логин	Пароль
+ADMIN	admin1	admin123
+MANAGER	manager1	manager123
+USER	user1	user123
+```
