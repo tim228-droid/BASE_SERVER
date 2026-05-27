@@ -32,7 +32,7 @@ CREATE USER postgres WITH PASSWORD 'postgres';
 GRANT ALL PRIVILEGES ON DATABASE sandbox TO postgres;
 ```
 
-Настройка конфигурации
+## Настройка конфигурации
 ```
 jwt.secret=66546A555E5A7234753778214123222A472D4B614E645262356B587032733576
 telegram.bot.token=есть
@@ -41,18 +41,36 @@ telegram.enabled=true
 upload.path=./uploads/
 ```
 
-Запуск приложения
+## Запуск приложения
 ```
 mvn spring-boot:run 
 ```
-API документация
+## API документация
 ```
 После запуска: http://localhost:8080/swagger-ui.html
 ```
-Тестовые пользователи
+## Тестовые пользователи
 
 | Роль     | Логин     | Пароль     |
 |----------|-----------|------------|
 | ADMIN    | admin1    | admin123   |
 | MANAGER  | manager1  | manager123 |
 | USER     | user1     | user123    |
+
+## 📡 API Endpoints
+
+| Метод | Эндпоинт | Описание |
+|:-----:|----------|----------|
+| POST | `/api/auth/register` | Регистрация нового пользователя |
+| POST | `/api/auth/login` | Авторизация (получение JWT токена) |
+| POST | `/api/wipers` | Создать нового дворника |
+| GET | `/api/wipers` | Получить всех дворников |
+| GET | `/api/wipers/{id}` | Получить дворника по ID |
+| PUT | `/api/wipers/{id}` | Обновить данные дворника |
+| DELETE | `/api/wipers/{id}` | Удалить дворника |
+| POST | `/api/wipers/{id}/repair` | Починить дворника (исправить аномалию) |
+| GET | `/api/wipers/search` | Поиск дворников по бренду |
+| GET | `/api/wipers/export/excel` | Экспорт всех дворников в Excel |
+| GET | `/api/wipers/report` | Сформировать отчёт в Excel |
+| GET | `/api/wipers/report/pdf` | Сформировать отчёт в PDF |
+| POST | `/api/wipers/import/excel` | Импорт дворников из Excel |
