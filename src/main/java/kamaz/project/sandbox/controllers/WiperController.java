@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -43,20 +42,19 @@ public class WiperController {
         log.info("[{}] {} -> {}", timestamp, username, action + " " + details);
     }
 
-
+    // ==================== ПРОСМОТР ====================
     @Operation(summary = "Получить все дворники", description = "Доступно всем авторизованным пользователям")
     @GetMapping
-    @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("hasAuthority('wipers:read')")
     public ResponseEntity<List<WiperResponseDto>> getAllWipers() {
         logAction("GET", "/api/wipers - просмотр всех дворников");
         return ResponseEntity.ok(wiperService.getAllActiveWipers());
     }
 
-
-
-    @Operation(summary = "Создать дворника", description = "Только для ADMIN. С вероятностью 30% аномалия (длина вне диапазона 300–900)")
+    // ==================== СОЗДАНИЕ ====================
+    @Operation(summary = "Создать дворника", description = "Только для ADMIN и MANAGER")
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('wipers:create')")
     public ResponseEntity<WiperResponseDto> createWiper(@Valid @RequestBody WiperCreateDto createDto) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         logAction("POST", "/api/wipers - создание дворника: " + createDto.brand() + " " + createDto.model());
@@ -64,11 +62,10 @@ public class WiperController {
         return ResponseEntity.ok(wiperService.createWiper(createDto, username));
     }
 
-
-
-    @Operation(summary = "Обновить дворника", description = "Только для ADMIN")
+    // ==================== ОБНОВЛЕНИЕ ====================
+    @Operation(summary = "Обновить дворника", description = "Только для ADMIN и MANAGER")
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('wipers:update')")
     public ResponseEntity<WiperResponseDto> updateWiper(@PathVariable Long id, @Valid @RequestBody WiperUpdateDto updateDto) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         logAction("PUT", "/api/wipers/" + id + " - обновление дворника");
@@ -76,10 +73,10 @@ public class WiperController {
         return ResponseEntity.ok(wiperService.updateWiper(id, updateDto, username));
     }
 
-
-    @Operation(summary = "Починить дворника (исправить аномалию)", description = "Только для ADMIN")
+    // ==================== ПОЧИНКА ====================
+    @Operation(summary = "Починить дворника", description = "Только для ADMIN и MANAGER")
     @PostMapping("/{id}/repair")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('wipers:update')")
     public ResponseEntity<WiperResponseDto> repairWiper(@PathVariable Long id) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         logAction("POST", "/api/wipers/" + id + "/repair - починка дворника");
@@ -87,10 +84,10 @@ public class WiperController {
         return ResponseEntity.ok(wiperService.repairWiper(id, username));
     }
 
-
+    // ==================== УДАЛЕНИЕ ====================
     @Operation(summary = "Удалить дворника", description = "Только для ADMIN")
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('wipers:delete')")
     public ResponseEntity<String> deleteWiper(@PathVariable Long id) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         logAction("DELETE", "/api/wipers/" + id + " - удаление дворника");
@@ -99,10 +96,10 @@ public class WiperController {
         return ResponseEntity.ok("Дворник удалён");
     }
 
-
-    @Operation(summary = "Экспорт всех дворников в Excel", description = "Только для ADMIN")
+    // ==================== ЭКСПОРТ / ОТЧЁТЫ ====================
+    @Operation(summary = "Экспорт всех дворников в Excel", description = "Только для ADMIN и MANAGER")
     @GetMapping("/export/excel")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('reports:export')")
     public ResponseEntity<?> exportToExcel() {
         logAction("GET", "/api/wipers/export/excel - экспорт в Excel");
         log.info("Экспорт всех дворников в Excel");
@@ -119,9 +116,9 @@ public class WiperController {
                 .body(new InputStreamResource(in));
     }
 
-    @Operation(summary = "Сформировать отчёт", description = "Только для ADMIN")
+    @Operation(summary = "Сформировать отчёт", description = "Только для ADMIN и MANAGER")
     @GetMapping("/report")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('reports:export')")
     public ResponseEntity<?> generateReport() {
         logAction("GET", "/api/wipers/report - формирование отчета");
         log.info("Формирование отчёта по дворникам");
@@ -137,10 +134,18 @@ public class WiperController {
                 .body(new InputStreamResource(in));
     }
 
+    @Operation(summary = "Сформировать отчёт в PDF", description = "Только для ADMIN и MANAGER")
+    @GetMapping("/report/pdf")
+    @PreAuthorize("hasAuthority('reports:export')")
+    public ResponseEntity<byte[]> generatePdfReport() {
+        logAction("GET", "/api/wipers/report/pdf - PDF отчёт");
+        return ResponseEntity.ok().body(new byte[0]);
+    }
 
+    // ==================== ИМПОРТ ====================
     @Operation(summary = "Импорт из Excel", description = "Только для ADMIN")
     @PostMapping(value = "/import/excel", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('wipers:create')")
     public ResponseEntity<List<WiperResponseDto>> importFromExcel(
             @Parameter(description = "Excel файл")
             @RequestParam("file") MultipartFile file) {

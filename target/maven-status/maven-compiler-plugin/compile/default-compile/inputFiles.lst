@@ -10,7 +10,6 @@ C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\ChangePasswordRe
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\LoginRequest.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\LoginResponse.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\RegisterRequest.java
-C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\RestoreRequest.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\UserDto.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\UserLoggedDto.java
 C:\Projects\BASE_SERVER\src\main\java\kamaz\project\sandbox\dto\WiperCreateDto.java

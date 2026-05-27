@@ -44,7 +44,6 @@ kamaz\project\sandbox\exception\AppExceptionHandler.class
 kamaz\project\sandbox\models\User.class
 kamaz\project\sandbox\services\impl\WiperServiceImpl.class
 kamaz\project\sandbox\config\SecurityConfig.class
-kamaz\project\sandbox\dto\RestoreRequest.class
 kamaz\project\sandbox\dto\WiperCreateDto.class
 kamaz\project\sandbox\jwt\JwtAuthEntryPoint.class
 kamaz\project\sandbox\jwt\JwtTokenProviderImpl.class
