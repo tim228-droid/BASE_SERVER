@@ -76,4 +76,4 @@ mvn spring-boot:run
 | POST | `/api/wipers/import/excel` | Импорт дворников из Excel |
 
 ## Схема БД
-https://github.com/tim228-droid/BASE_SERVER/blob/98fdb5cbb78382ebe867774c5e1285603261e344/BD.png
+![Схема БД](https://github.com/tim228-droid/BASE_SERVER/blob/98fdb5cbb78382ebe867774c5e1285603261e344/BD.png)
