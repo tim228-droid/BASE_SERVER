@@ -50,10 +50,12 @@ API документация
 После запуска: http://localhost:8080/swagger-ui.html
 ```
 Тестовые пользователи
-```
-| Роль     | Логин     | Пароль     |
-|----------|-----------|------------|
-| ADMIN    | admin1    | admin123   |
-| MANAGER  | manager1  | manager123 |
-| USER     | user1     | user123    |
-```
+
+| Метод | Эндпоинт | Описание |
+|-------|----------|----------|
+| POST | /api/auth/login | Авторизация (получение JWT токена) |
+| POST | /api/sensors | Отправить данные датчика |
+| GET | /api/sensors/latest | Получить последние показания |
+| GET | /api/sensors/history | Получить историю показаний |
+| GET | /api/sensors/alerts | Получить список аномалий |
+
